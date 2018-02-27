@@ -11,7 +11,7 @@
         @CSRF.formField
 
         @inputText(productForm("name"), '_label -> "Name", 'class -> "form-control")
-        @for(value, name <- Category.options) {
+        @for((value, name) <- Category.options) {
             <input type="checkbox" name="catSelect[]" value="@value"/>@name</br>
         }
 

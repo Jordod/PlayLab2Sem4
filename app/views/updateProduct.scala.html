@@ -9,7 +9,7 @@
     @CSRF.formField
     @inputText(updateProductForm("name"), '_label -> "Name", 'class -> "form-control")
     @inputText(updateProductForm("description"), '_label -> "Description", 'class -> "form-control")
-    @for(value, name <- Category.options) {
+    @for((value, name) <- Category.options) {
         <input type="checkbox" name="catSelect[]" value="@value"
         @if(Category.inCategory(value.toLong, id)) {
             checked

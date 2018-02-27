@@ -77,13 +77,13 @@ public class HomeController extends Controller {
 
             if (newProduct.getId() == null) {
                 newProduct.save();    
-                flash("success", "Product " + newProduct.getName() + " was added");
-                
-            }
-            else if (newProduct.getId() != null) {
+                for (Long cat : newProduct.getCatSelect()) {
+                    newProduct.categories.add(Category.find.byId(cat));
+                }
                 newProduct.update();
                 flash("success", "Product " + newProduct.getName() + " was updated");
             }
+
         }
 
         MultipartFormData data = request().body().asMultipartFormData();
@@ -178,7 +178,13 @@ public class HomeController extends Controller {
             Product p = updateProductForm.get();
             p.setId(id);
             
-            
+            List<Category> newCats = new ArrayList<Category>();
+            for (Long cat : p.getCatSelect()) {
+                newCats.add(Category.find.byId(cat));
+            }
+            p.categories = newCats;
+
+
             //update (save) this product
             p.update();
 

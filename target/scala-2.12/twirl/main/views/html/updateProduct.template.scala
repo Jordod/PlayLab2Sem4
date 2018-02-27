@@ -41,23 +41,29 @@ Seq[Any](format.raw/*1.78*/("""
     """),_display_(/*9.6*/CSRF/*9.10*/.formField),format.raw/*9.20*/("""
     """),_display_(/*10.6*/inputText(updateProductForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*10.87*/("""
     """),_display_(/*11.6*/inputText(updateProductForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*11.101*/("""
-    """),_display_(/*12.6*/select(updateProductForm("category.id"),options(Category.options),'_label -> "Category", '_default -> "-- Choose a category --", '_showConstraints -> false, 'class -> "form-control")),format.raw/*12.188*/("""     
+    """),_display_(/*12.6*/for((value, name) <- Category.options) yield /*12.44*/ {_display_(Seq[Any](format.raw/*12.46*/("""
+        """),format.raw/*13.9*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*13.59*/value),format.raw/*13.64*/(""""
+        """),_display_(/*14.10*/if(Category.inCategory(value.toLong, id))/*14.51*/ {_display_(Seq[Any](format.raw/*14.53*/("""
+            """),format.raw/*15.13*/("""checked
+        """)))}),format.raw/*16.10*/("""
+        """),format.raw/*17.9*/("""/>"""),_display_(/*17.12*/name),format.raw/*17.16*/("""</br>
+    """)))}),format.raw/*18.6*/("""
 
-    """),_display_(/*14.6*/inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*14.89*/("""
-    """),_display_(/*15.6*/inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*15.89*/("""
+    """),_display_(/*20.6*/inputText(updateProductForm("stock"), '_label -> "Stock", 'class -> "form-control")),format.raw/*20.89*/("""
+    """),_display_(/*21.6*/inputText(updateProductForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*21.89*/("""
     
-    """),format.raw/*17.5*/("""<label>Image </label>
+    """),format.raw/*23.5*/("""<label>Image </label>
     <input class = "btn-sm btn-default" type="file" name="upload">
     <br><br>
 
     <div class="actions">
         <input type="submit" value="Update Product" class="btn btn-primary">
-        <a href=""""),_display_(/*23.19*/routes/*23.25*/.HomeController.index(0)),format.raw/*23.49*/("""">
+        <a href=""""),_display_(/*29.19*/routes/*29.25*/.HomeController.index(0)),format.raw/*29.49*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
- """)))}),format.raw/*27.3*/("""
-""")))}),format.raw/*28.2*/("""
+ """)))}),format.raw/*33.3*/("""
+""")))}),format.raw/*34.2*/("""
 """))
       }
     }
@@ -74,11 +80,11 @@ Seq[Any](format.raw/*1.78*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 27 11:20:46 GMT 2018
+                  DATE: Tue Feb 27 14:21:53 GMT 2018
                   SOURCE: /media/sf_student/lab2/app/views/updateProduct.scala.html
-                  HASH: 5c7551f3b0424f6ca58698183aeb629a786441aa
-                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1701->364|1803->445|1835->451|1952->546|1984->552|2188->734|2226->746|2330->829|2362->835|2466->918|2503->928|2754->1152|2769->1158|2814->1182|2947->1285|2979->1287
-                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|42->10|42->10|43->11|43->11|44->12|44->12|46->14|46->14|47->15|47->15|49->17|55->23|55->23|55->23|59->27|60->28
+                  HASH: a7a32cd3d3ec4b6441be21f60f614a7c0125577a
+                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1701->364|1803->445|1835->451|1952->546|1984->552|2038->590|2078->592|2114->601|2191->651|2217->656|2255->667|2305->708|2345->710|2386->723|2434->740|2470->749|2500->752|2525->756|2566->767|2599->774|2703->857|2735->863|2839->946|2876->956|3127->1180|3142->1186|3187->1210|3320->1313|3352->1315
+                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|42->10|42->10|43->11|43->11|44->12|44->12|44->12|45->13|45->13|45->13|46->14|46->14|46->14|47->15|48->16|49->17|49->17|49->17|50->18|52->20|52->20|53->21|53->21|55->23|61->29|61->29|61->29|65->33|66->34
                   -- GENERATED --
               */
           

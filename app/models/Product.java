@@ -59,9 +59,12 @@ public class Product extends Model {
         public void setName(String name) {
             this.name = name;
         }
-        public List<Category>
-         getCategories() {
+        public List<Category> getCategories() {
             return categories;
+        }
+
+        public List<Long> getCatSelect() {
+            return catSelect;
         }
         
         public String getDescription() { 
